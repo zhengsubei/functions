@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		//数据表单value值获取方式
+//		var fb = document.getElementById("addBooks");
+//		var form = new FormData(fb);
+		
+		$.ajax({
+	             url: "../addbooks.php",//发送地址
+	             type: "post",
+	             data:form,
+	             processData: false,  // 告诉jQuery不要去处理发送的数据
+	             contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+	             success: function(data){
+	      			console.log(data);
+	            }
+       		});
+		})
+		
+	 //获取url中"?"符后的字串,返还对象  
+		function GetRequest() {   
+		   var url = location.search;
+		   var theRequest = new Object();   
+		   if (url.indexOf("?") != -1) {   
+		      var str = url.substr(1);   
+		      strs = str.split("&");   
+		      for(var i = 0; i < strs.length; i ++) {   
+		         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+		      }   
+		   }   
+		   return theRequest;   
+		}
+	</script>
+</html>

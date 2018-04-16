@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<button id="btn">按钮</button>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		//获取cookie中  key  对应的 value 值
+		function getCookie(key) {
+		    var cookieArr = document.cookie.split('; ');
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var arr = cookieArr[i].split('=');
+		        if(arr[0] === key) {
+		            return arr[1];
+		        }
+		    }
+		    return false;
+		}
+
+		// 设置cookie
+		// document.cookie="id=77; name=bill";  这样只能设置单个cookie
+		// 设置多个cookie值
+		// document.cookie =" id =77";
+		// document.cookie ="name=sim";
+		// 在cookie的名或值中不能使用分号（;）、逗号（,）、等号（=）以及空格。如果想存入这些值，我们可以使用escape()函数进行编码，它能将一些特殊符号使用十六进制表示，例如空格将会编码为“%20”，从而可以存储于cookie值中。
+
+		// 例如：
+		// document.cookie="str="+escape("Hello World");
+		// 相当于：
+		// document.cookie="str=Hello%20World";
+		// 当使用escape()编码后，在取出值以后需要使用unescape()进行解码才能得到原来的cookie值。
+		document.cookie ="id=10; name=susan";
+		document.cookie = "name=sim"
+ 		document.getElementById("btn").onclick=function(){
+ 			document.cookie ="id = 20";
+ 		}
+ 		//修改cookie值
+ 		//通过重新定义cookie值来修改（简单说就是直接修改）
+ 		document.cookie ="name=wang"
+
+ 		// 给cookie设置有效时间（默认是当浏览器关闭，cookie失效)
+ 		var date = new Date();
+ 		var	da= date.getDate();
+ 			date.setDate(da+3);
+ 			console.log(date);
+ 		document.cookie="id1=77; expires="+date;
+ 		// 删除cookie值ke
+ 		// 设置cookie过期时间为负值
+	</script>
+</html>
